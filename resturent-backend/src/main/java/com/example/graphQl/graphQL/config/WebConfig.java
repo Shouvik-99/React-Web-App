@@ -14,7 +14,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/foods")
+        registry.addResourceHandler("/bnjnomlz")
                 .setCacheControl(CacheControl.maxAge(Duration.ofDays(365)));
     }
 }
