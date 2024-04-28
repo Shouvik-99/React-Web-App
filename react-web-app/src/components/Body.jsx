@@ -1,5 +1,6 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
+import { Link } from 'react-router-dom'
 
 function Body() {
     return (
@@ -11,7 +12,7 @@ function Body() {
                         alt="Image One"
                     />
                     <Carousel.Caption>
-                        <h3>Veggies</h3>
+                        <Link to = "/veg-items" style={{color: '#ffffff', textDecoration: 'none', fontSize: '151px'}}>Veggies</Link>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={500}>
@@ -21,7 +22,7 @@ function Body() {
                         alt="Image Two"
                     />
                     <Carousel.Caption>
-                        <h3>Non-Veg delicious</h3>
+                    <Link to = "/non-veg-items" style={{color: '#ffffff', textDecoration: 'none', fontSize: '100px'}}>Non-Veg delicious</Link>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

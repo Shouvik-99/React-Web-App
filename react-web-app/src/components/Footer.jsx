@@ -5,7 +5,6 @@ import { GiJusticeStar } from "react-icons/gi";
 
 function Footer() {
   return ( 
-<div className="container my-5" style={{maxWidth: '100%'}}>
 <footer className="text-center text-white" style={{backgroundColor: '#3f51b5'}}>
 <div className="container">
       <section className="mt-5">
@@ -104,7 +103,6 @@ function Footer() {
     </div>
     
   </footer>
-</div>
   )
 }
 
