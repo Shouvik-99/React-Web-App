@@ -6,11 +6,15 @@ import NonVegItems from './components/NonVegItems.jsx'
 import './index.css'
 import {RouterProvider, createBrowserRouter} from "react-router-dom"
 import Body from './components/Body.jsx'
+import foodItemStore from './store/index.js'
+import Form from './components/Form.jsx'
+import {Provider} from "react-redux"
 
 const router = createBrowserRouter([
   {path:"/", element: <App />,
 children:[{path:"/veg-items", element: <VegItems />},
 {path:"/non-veg-items", element: <NonVegItems />},
+{path:"/form", element: <Form />},
 {path: "/", element: <Body />}]},
   
 
@@ -18,6 +22,8 @@ children:[{path:"/veg-items", element: <VegItems />},
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Provider store={foodItemStore}>
     <RouterProvider router={router}/>
+    </Provider>
   </React.StrictMode>,
 )
