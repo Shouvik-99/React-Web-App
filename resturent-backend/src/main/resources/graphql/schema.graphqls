@@ -1,0 +1,32 @@
+type Mutation {
+    createFood(FoodInput: FoodInput): Food
+    updateFood(FoodId: Int, FoodInput: FoodInput) : Food
+    deleteFood(FoodId: Int) : Food
+}
+type Query {
+    allFoods: [Food]
+    getFood(FoodId: Int): Food
+    resolver: Resolver
+}
+type Resolver {
+    id:Int
+    firstName:String
+    lastName:String
+    fullName:String
+}
+type Subscription {
+    Foods: [Food]
+}
+
+type Food {
+    id: ID!
+    firstName: String
+    lastName: String
+    emailId: String
+}
+
+input FoodInput {
+    firstName: String
+    lastName: String
+    emailId: String
+}
