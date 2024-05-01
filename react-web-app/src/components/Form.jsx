@@ -11,7 +11,7 @@ function Form() {
     
     const handleOnclick = (event) => {
         event.preventDefault();
-        fetch("http://localhost:8080/api/v1/foods", {
+        fetch("https://react-backend-production-e284.up.railway.app/api/v1/foods", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
