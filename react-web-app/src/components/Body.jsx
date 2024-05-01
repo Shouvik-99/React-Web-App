@@ -19,8 +19,7 @@ function Body() {
                     <img
                         className="d-block w-100"
                         src="https://images.jdmagicbox.com/quickquotes/listicle/listicle_1683697362867_zui6n_1040x500.jpg"
-                        alt="Image Two"
-                        style={{height: "800px", width: "1040px"}}
+                        alt="Image Two" style={{height: "800px", width: "1040px"}}
                     />
                     <Carousel.Caption>
                     <Link to = "/non-veg-items" style={{color: '#ffffff', textDecoration: 'none', fontSize: '100px'}}>Non-Veg delicious</Link>

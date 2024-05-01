@@ -1,7 +1,5 @@
 import React from 'react'
 import { FaFacebook, FaLinkedinIn, FaTwitter, FaGoogle, FaInstagram, FaGithub } from "react-icons/fa";
-import { PiFlowerLotusBold } from "react-icons/pi";
-import { GiJusticeStar } from "react-icons/gi";
 
 function Footer() {
   return ( 
@@ -15,25 +13,19 @@ function Footer() {
               <a href="#!" className="text-white">About us</a>
             </h6>
           </div>
-          
-
-          
+            
           <div className="col-md-2">
             <h6 className="text-uppercase font-weight-bold">
               <a href="#!" className="text-white">Products</a>
             </h6>
           </div>
-          
-
-          
+            
           <div className="col-md-2">
             <h6 className="text-uppercase font-weight-bold">
               <a href="#!" className="text-white">Awards</a>
             </h6>
           </div>
-          
-
-          
+           
           <div className="col-md-2">
             <h6 className="text-uppercase font-weight-bold">
               <a href="#!" className="text-white">Help</a>
@@ -48,8 +40,7 @@ function Footer() {
         </div>
       </section>
       <hr className="my-5" />
-
-      
+ 
       <section className="mb-5">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-8">
@@ -59,9 +50,7 @@ function Footer() {
           </div>
         </div>
       </section>
-      
-
-      
+        
       <section className="text-center mb-5">
         <a href="" className="text-white me-4">
           <i className="fab fa-facebook-f"></i>
@@ -89,9 +78,7 @@ function Footer() {
         </a>
       </section>
     </div>
-    
-
-    
+     
     <div
          className="text-center p-3"
          style={{backgroundColor: 'rgba(0, 0, 0, 0.2)'}}
@@ -100,8 +87,7 @@ function Footer() {
       <a className="text-white" href="https://mdbootstrap.com/"
          >spgdfooditems.com</a
         >
-    </div>
-    
+    </div> 
   </footer>
   )
 }
