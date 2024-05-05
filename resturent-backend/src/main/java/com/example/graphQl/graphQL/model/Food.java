@@ -30,16 +30,20 @@ public class Food {
     @Column(name = "food_type")
     private String foodType;
 
+    @Column(name = "food_image")
+    private String foodImage;
+
 
     public Food() {
     }
 
-    public Food(String foodName, String foodCategory, long foodPrice, long foodQuantity, String foodType) {
+    public Food(String foodName, String foodCategory, long foodPrice, long foodQuantity, String foodType, String foodImage) {
         this.foodName = foodName;
         this.foodCategory = foodCategory;
         this.foodPrice = foodPrice;
         this.foodQuantity = foodQuantity;
         this.foodType = foodType;
+        this.foodImage = foodImage;
     }
 
     public int getId() {
@@ -88,5 +92,13 @@ public class Food {
 
     public void setFoodType(String foodType) {
         this.foodType = foodType;
+    }
+
+    public String getFoodImage() {
+        return foodImage;
+    }
+
+    public void setFoodImage(String foodImage) {
+        this.foodImage = foodImage;
     }
 }

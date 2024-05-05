@@ -6,7 +6,6 @@ import com.example.graphQl.graphQL.graphqlRequest.FoodInput;
 import com.example.graphQl.graphQL.model.Food;
 import com.example.graphQl.graphQL.repository.FoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,6 +43,7 @@ public class FoodController implements GraphQLSubscriptionResolver {
         food.setFoodPrice(foodInput.getFoodPrice());
         food.setFoodQuantity(foodInput.getFoodQuantity());
         food.setFoodType(foodInput.getFoodType());
+        food.setFoodImage(foodInput.getFoodImage());
 
         return foodRepository.save(food);
     }
@@ -69,6 +69,7 @@ public class FoodController implements GraphQLSubscriptionResolver {
         food.setFoodPrice(foodInput.getFoodPrice());
         food.setFoodQuantity(foodInput.getFoodQuantity());
         food.setFoodType(foodInput.getFoodType());
+        food.setFoodImage(foodInput.getFoodImage());
 
         Food updatedFood = foodRepository.save(food);
         return updatedFood;
