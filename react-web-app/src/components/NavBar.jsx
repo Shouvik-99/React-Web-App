@@ -4,8 +4,10 @@ import { MdAccountCircle } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
+import { useAuth0 } from "@auth0/auth0-react";
 
 function NavBar() {
+    const { logout } = useAuth0();
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         <a
           href=""
@@ -39,7 +41,7 @@ function NavBar() {
                         <Dropdown.Menu>
                             <Dropdown.Item href="#/action-1">⌮ My Profile ⌮</Dropdown.Item>
                             {/* <Dropdown.Item href="#/action-2"></Dropdown.Item> */}
-                            <Dropdown.Item as={Link} to="/login">👀 Log out 👀</Dropdown.Item>
+                            <Dropdown.Item onClick={() => logout()}>👀 Log out 👀</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     <FaCartShopping className="m-2" size={25}/>
