@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import { fetchFoodItems} from '../store/FoodItemsSlice'
-import "./ItemDisplay.css"
+import "../../public/css/ItemDisplay.css"
 import { IMAGE_FILE_PATH, IMAGE_NAME_TO_IMAGE_SRC_MAP } from '../../public/ImageSource'
 
 function VegItems() {
