@@ -28,12 +28,14 @@ const router = createBrowserRouter([
   { path: "/login", element: <Login /> },
   {path: "/update-form/:id", element: <ItemUpdateForm />}
 ])
+const domain = import.meta.env.VITE_REACT_WEB_APP_DOMAIN;
+const clientId = import.meta.env.VITE_REACT_WEB_APP_CLIENT_ID;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-3aamag85ohi8pp6i.us.auth0.com"
-      clientId="FjTnYZZvdhZfuoAsBeZpV4xTcFNm9wuG"
+      domain={domain}
+      clientId={clientId}
       authorizationParams={{
         redirect_uri: window.location.origin
       }}>
