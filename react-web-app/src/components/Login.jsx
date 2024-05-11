@@ -1,6 +1,5 @@
 import React from 'react'
 import "../../public/css/Login.css"
-import { FaFacebook, FaTwitter, FaGoogle } from "react-icons/fa";
 import { useAuth0 } from "@auth0/auth0-react";
 import {
     MDBBtn,
@@ -21,7 +20,7 @@ function Login() {
                     <IoFastFood size={250} className="mb-5"/>
                         <h3 className="fw-normal mb-3 ps-5 pb-3" style={{ letterSpacing: '1px' }}>🍔Foodies Farm🍔</h3>
                         <MDBBtn className="mb-4 px-5 mx-5 w-100" color='info' size='lg' onClick={() => loginWithRedirect()} >Login</MDBBtn>
-                        <p className='ms-5'>Don't have an account? <a href="#!" class="link-info" onClick={() => loginWithRedirect()}>Register here</a></p>
+                        <p className='ms-5'>Don't have an account? <a href="#!" className="link-info" onClick={() => loginWithRedirect()}>Register here</a></p>
                     </div>
                 </MDBCol>
                 <MDBCol sm='6' className='d-none d-sm-block px-0'>
@@ -31,6 +30,7 @@ function Login() {
             </MDBRow>
         </MDBContainer>
     )
+
 }
 
 export default Login

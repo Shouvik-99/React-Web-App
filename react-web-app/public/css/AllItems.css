@@ -1,0 +1,13 @@
+ul{
+    list-style-type:none;
+}
+
+li span {
+    display: inline-table;
+    width: -webkit-fill-available;
+}
+
+.link-style{
+    color: #f8f9fa;
+    text-decoration: none;
+}

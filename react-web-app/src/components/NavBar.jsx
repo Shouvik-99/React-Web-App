@@ -5,6 +5,7 @@ import { IoHome } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useAuth0 } from "@auth0/auth0-react";
+import { RiAdminFill } from "react-icons/ri";
 
 function NavBar() {
     const { logout } = useAuth0();
@@ -17,8 +18,9 @@ function NavBar() {
             onClick(e);
           }}
         >
+            {children}
           {/* Render custom icon here */}
-          <MdAccountCircle className="m-2" size={25} style={{ color: '#000000' }}/>
+          {/* <MdAccountCircle className="m-2" size={25} style={{ color: '#000000' }}/> */}
         </a>
       ));
     return (
@@ -36,6 +38,17 @@ function NavBar() {
                     {/* <MdAccountCircle className="m-2" size={25} /> */}
                     <Dropdown>
                         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+                        <RiAdminFill className="m-2" size={25} style={{ color: '#000000' }}/>
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item as={Link} to="/form">Add item</Dropdown.Item>
+                            <Dropdown.Item as={Link} to="/all-items">Update item</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                    <Dropdown>
+                        <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+                        <MdAccountCircle className="m-2" size={25} style={{ color: '#000000' }}/>
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>

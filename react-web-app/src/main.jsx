@@ -11,6 +11,8 @@ import { Provider } from "react-redux"
 import store from './store/MainStore.js'
 import Login from './components/Login.jsx'
 import { Auth0Provider } from '@auth0/auth0-react';
+import AllItems from './components/AllItems.jsx'
+import ItemUpdateForm from './components/ItemUpdateForm.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,9 +20,13 @@ const router = createBrowserRouter([
     children: [{ path: "/veg-items", element: <VegItems /> },
     { path: "/non-veg-items", element: <NonVegItems /> },
     { path: "/form", element: <Form /> },
-    { path: "/", element: <Body /> }]
+    { path: "/", element: <Body /> },
+    { path: "/all-items", element: <AllItems />},
+    // {path: "/update-form/:id", element: <ItemUpdateForm />}
+  ]
   },
   { path: "/login", element: <Login /> },
+  {path: "/update-form/:id", element: <ItemUpdateForm />}
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
