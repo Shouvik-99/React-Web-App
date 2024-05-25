@@ -1,6 +1,8 @@
 import React from 'react'
 import "../../public/css/Login.css"
 import { useAuth0 } from "@auth0/auth0-react";
+import Swal from 'sweetalert2';
+import "sweetalert2/src/sweetalert2.scss"
 import {
     MDBBtn,
     MDBContainer,
@@ -12,6 +14,12 @@ import { IoFastFood } from "react-icons/io5";
 
 function Login() {
     const { loginWithRedirect } = useAuth0();
+    Swal.fire({
+      title: "Welcome",
+      text: "You are just outside of foodies hub",
+      imageUrl: "https://img.freepik.com/premium-vector/cute-chef-girl-uniform-character-welcome-food-restaurant-logo-cartoon-art-illustration_56104-1607.jpg",
+      timer: 5000
+    })
     return (
         <MDBContainer fluid>
             <MDBRow>

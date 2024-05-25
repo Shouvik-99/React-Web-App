@@ -52,7 +52,7 @@ function NavBar() {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">⌮ My Profile ⌮</Dropdown.Item>
+                            <Dropdown.Item as={Link} to="my-profile">⌮ My Profile ⌮</Dropdown.Item>
                             {/* <Dropdown.Item href="#/action-2"></Dropdown.Item> */}
                             <Dropdown.Item onClick={() => logout()}>👀 Log out 👀</Dropdown.Item>
                         </Dropdown.Menu>

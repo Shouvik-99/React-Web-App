@@ -13,6 +13,7 @@ import Login from './components/Login.jsx'
 import { Auth0Provider } from '@auth0/auth0-react';
 import AllItems from './components/AllItems.jsx'
 import ItemUpdateForm from './components/ItemUpdateForm.jsx'
+import MyProfileComponent from './components/MyProfile.jsx'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
     { path: "/form", element: <Form /> },
     { path: "/", element: <Body /> },
     { path: "/all-items", element: <AllItems />},
+    { path: "/my-profile", element: <MyProfileComponent />}
     // {path: "/update-form/:id", element: <ItemUpdateForm />}
   ]
   },
