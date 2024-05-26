@@ -8,6 +8,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { RiAdminFill } from "react-icons/ri";
 
 function NavBar() {
+  const { countItems } = useSelector((store) => store.totalSelectedItemsCount);
+  console.log(countItems);
     const { logout } = useAuth0();
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         <a
