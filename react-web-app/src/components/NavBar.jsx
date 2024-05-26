@@ -57,7 +57,13 @@ function NavBar() {
                             <Dropdown.Item onClick={() => logout()}>👀 Log out 👀</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
-                    <FaCartShopping className="m-2" size={25}/>
+          <i className="badge" value={countItems}>
+            <FaCartShopping
+              className="m-2"
+              style={{ color: "black" }}
+              size={25}
+            />
+          </i>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-outline-success" type="submit">Search</button>
