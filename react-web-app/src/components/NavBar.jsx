@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useAuth0 } from "@auth0/auth0-react";
 import { RiAdminFill } from "react-icons/ri";
+import "../../public/css/CountBag.css";
+import { useSelector } from "react-redux";
 
 function NavBar() {
   const { countItems } = useSelector((store) => store.totalSelectedItemsCount);
