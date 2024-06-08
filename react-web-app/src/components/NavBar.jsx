@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 
 function NavBar() {
   const { countItems } = useSelector((store) => store.totalSelectedItemsCount);
-  console.log(countItems);
+//   console.log(countItems);
     const { logout } = useAuth0();
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         <a

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     MDBCol,
     MDBContainer,
@@ -11,9 +11,32 @@ import {
 import { useAuth0 } from "@auth0/auth0-react";
 import Swal from 'sweetalert2';
 import Loader from './Loader';
-import '../../public/css/Swal.css' 
+import '../../public/css/Swal.css'
 
 export default function MyProfileComponent() {
+    const [address, setAddress] = useState('')
+    useEffect(() => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success, error);
+        } else {
+            console.log("Geolocation not supported");
+        }
+
+        function success(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            // console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+            fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`)
+                .then((res) => res.json())
+                .then(result => {
+                    const finalAddress = [result.localityInfo.administrative.pop().name, result.city, result.principalSubdivision, result.continent, result.countryName]
+                    setAddress(finalAddress.join(', ')); 
+                })
+        }
+        function error() {
+            console.log("Unable to retrieve your location");
+        }
+    }, [])
     const { user, logout, isAuthenticated, isLoading } = useAuth0()
     const AUTH0_KEY = 'auth0';
     const domain = import.meta.env.VITE_REACT_WEB_APP_DOMAIN;
@@ -27,12 +50,12 @@ export default function MyProfileComponent() {
                 confirmButtonText: 'Yes',
                 denyButtonText: 'No',
                 customClass: {
-                  actions: 'my-actions',
-                  cancelButton: 'order-1 right-gap',
-                  confirmButton: 'order-2',
-                  denyButton: 'order-3',
+                    actions: 'my-actions',
+                    cancelButton: 'order-1 right-gap',
+                    confirmButton: 'order-2',
+                    denyButton: 'order-3',
                 },
-              }).then((result) => {
+            }).then((result) => {
                 if (result.isConfirmed) {
                     fetch(`https://${domain}/dbconnections/change_password`, {
                         method: "POST",
@@ -48,9 +71,9 @@ export default function MyProfileComponent() {
                         text: "We have fired a passowrd reset mail to you inbox, please login with new credential"
                     })).then(res => logout())
                 } else if (result.isDenied) {
-                  Swal.fire('Sorry password update declined', '', 'info')
+                    Swal.fire('Sorry password update declined', '', 'info')
                 }
-              })
+            })
         } else {
             Swal.fire({
                 icon: "info",
@@ -59,8 +82,8 @@ export default function MyProfileComponent() {
             })
         }
     }
-    if (isLoading && !isAuthenticated) {
-        return (<Loader/>)
+    if (!address || isLoading || !isAuthenticated) {
+        return (<Loader />)
     }
     return (
         <section style={{ backgroundColor: '#eee' }}>
@@ -76,7 +99,7 @@ export default function MyProfileComponent() {
                                     style={{ width: '150px' }}
                                     fluid />
                                 <p style={{ fontFamily: "gwen", fontWeight: 'bold' }}>Hello Foodie {user.sub.includes(AUTH0_KEY) ? user.nickname : user.name}</p>
-                                <p className="text-muted mb-4" style={{ fontFamily: "cursive" }}>Bay Area, San Francisco, CA</p>
+                                <p className="text-muted mb-4" style={{ fontFamily: "cursive" }}>{address}</p>
                                 <div className="d-flex justify-content-center mb-2">
                                     <button type="button" className="btn btn-primary" onClick={handleOnclick}>🔐Update Passkey🔐</button>
                                 </div>
@@ -118,10 +141,9 @@ export default function MyProfileComponent() {
                                         <MDBCardText style={{ fontFamily: "gwen", fontWeight: 'bold' }}>Address</MDBCardText>
                                     </MDBCol>
                                     <MDBCol sm="9">
-                                        <MDBCardText className="text-muted" style={{ fontFamily: "cursive" }}>Bay Area, San Francisco, CA</MDBCardText>
+                                        <MDBCardText className="text-muted" style={{ fontFamily: "cursive" }}>{address}</MDBCardText>
                                     </MDBCol>
                                 </MDBRow>
-                                <button type="button" className="btn btn-success" style={{ marginTop: 45 }}>Edit Profile</button>
                             </MDBCardBody>
                         </MDBCard>
                     </MDBCol>
